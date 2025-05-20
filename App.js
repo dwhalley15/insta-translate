@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * @fileoverview
+ * This file initializes the app by setting up the database and loading the initial data.
+ * It renders the main navigation component for the app.
+ * 
+ * @module App
+ */
 
+import React, { useEffect } from "react";
+import StackNavigator from "./navigation/StackNavigator";
+import { setupDatabase, loadInitialData } from "./services/DatabaseService";
+
+/**
+ * The main App component that initializes the database and loads the initial data.
+ * Once initialization is complete, it renders the StackNavigator component.
+ *
+ * @returns {JSX.Element} The main navigation component for the app.
+ */
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  useEffect(() => {
+    /**
+     * Asynchronously initializes the app by setting up the database and loading initial data.
+     * Logs an error to the console if initialization fails.
+     */
+    const initialise = async () => {
+      try {
+        await setupDatabase();
+        await loadInitialData();
+      } catch (error) {
+        console.error("Error initialising app:", error);
+      }
+    };
+    initialise();
+  }, []);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  return <StackNavigator />;
+}
