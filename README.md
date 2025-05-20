@@ -34,7 +34,8 @@ A mobile translation app built with **React Native** and **Expo**, powered by **
 
 2. **Install dependencies**:
 
-    ```npm install
+    ```
+    npm install
 
 3. **Set up environment variables**:
 
@@ -46,4 +47,5 @@ A mobile translation app built with **React Native** and **Expo**, powered by **
 
 4. **Run the app**:
 
-    ```npx expo start
+    ```
+    npx expo start
