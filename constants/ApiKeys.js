@@ -6,6 +6,6 @@
  * @module ApiKeys
  */
 
-export const googleApiKey = process.env.GOOTLE_API_KEY;
+export const googleApiKey = process.env.GOOGLE_API_KEY;
 
 export const openAiKey = process.env.OPENAI_API_KEY;
